@@ -1,0 +1,45 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `cargo test`
+/microcred-backend/target
+
+# Cargo package cache
+/microcred-backend/.cargo
+/microcred-backend/.crates.toml
+/microcred-backend/.crates2.json
+
+# Rust specific
+**/*.rs.bk
+
+# Dependencies
+/microcred-backend/target/
+/microcred-backend/Cargo.lock
+
+# Protobuf generated files
+/microcred-backend/proto_generated/
+
+# Node.js related (for frontend or any other JavaScript usage)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.*
+
+# IDE/Editor configurations
+.idea/
+.vscode/
+*.iml
+
+# Mac OS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+ehthumbs.db

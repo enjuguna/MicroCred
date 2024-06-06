@@ -1,0 +1,13 @@
+[package]
+name = "microcred-backend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4.0"
+mongodb = "2.0"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
+linera-sdk = "0.11.3"
+openapi = "0.1.5"
