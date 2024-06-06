@@ -1,0 +1,81 @@
+openapi: "3.0.0"
+info:
+  title: Microcred API
+  version: "1.0.0"
+paths:
+  /dids:
+    post:
+      summary: Create DID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DID'
+      responses:
+        '200':
+          description: Successfully created
+    get:
+      summary: Get all DIDs
+      responses:
+        '200':
+          description: A list of DIDs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DID'
+  /dids/{id}:
+    get:
+      summary: Get DID by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DID'
+    put:
+      summary: Update DID by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Successfully updated
+    delete:
+      summary: Delete DID by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully deleted
+components:
+  schemas:
+    DID:
+      type: object
+      properties:
+        id:
+          type: string
+        credential:
+          type: string
