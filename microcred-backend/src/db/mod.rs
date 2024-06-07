@@ -15,18 +15,13 @@ pub struct MongoDB {
 
 impl MongoDB {
     pub async fn init(connection_string: &str) -> Self {
-        // Connection string for MongoDB
         let client_options = ClientOptions::parse(connection_string).await.unwrap();
         let client = Client::with_options(client_options).unwrap();
-        
-        // Access the microcred database
         let db = client.database("microcred");
-        
         MongoDB { db }
     }
 
     pub fn get_collection(&self) -> Collection<DID> {
-        // Access the microcred collection
         self.db.collection::<DID>("microcred")
     }
 

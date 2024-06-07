@@ -1,9 +1,7 @@
 use actix_web::{web, App, HttpServer};
-use mongodb::Client;
-use std::sync::Arc;
 use dotenv::dotenv;
 use std::env;
-use paperclip::actix::{web::Json, OpenApiExt};
+use std::sync::Arc;
 
 mod api;
 mod db;
@@ -19,11 +17,8 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(move || {
         App::new()
-            .wrap_api()
             .app_data(mongo_data.clone())
             .configure(api::init)
-            .with_json_spec_at("/api/spec")
-            .build()
     })
     .bind("127.0.0.1:8080")?
     .run()
